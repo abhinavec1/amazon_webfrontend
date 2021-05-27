@@ -68,11 +68,11 @@ html, body {
     padding: 5px;
     }
     .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-    color: #892e9b;
+    color: rgb(63, 107, 252);
     }
     .item input:hover, .item select:hover, .item textarea:hover {
     border: 1px solid transparent;
-    box-shadow: 0 0 6px 0 #892e9b;
+    box-shadow: 0 0 6px 0 rgb(63, 107, 252);
     color: #892e9b;
     }
     .item {

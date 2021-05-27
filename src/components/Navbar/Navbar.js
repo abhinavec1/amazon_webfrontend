@@ -34,7 +34,7 @@ class Navbar extends React.Component{
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                         {this.RenderedMenu}
                 </ul>
-                <Button>Sign Up</Button>
+                <Button>Sign Out</Button>
             </div>
         )
     }

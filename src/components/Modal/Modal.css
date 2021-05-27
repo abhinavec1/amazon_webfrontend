@@ -4,8 +4,8 @@ i{
     color: #0FDDAF;
 }
 .modal{
-    font-family: "Open Sans";
     display: flex;
+    z-index: 2;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -14,7 +14,6 @@ i{
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.4);
-    z-index: 2;
 }
 .inner_description{
     position: relative;
@@ -23,10 +22,11 @@ i{
     width: 80%;
     background-color: white;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
 }
 .heading{
     text-align: center;
+    color: #0FDDAF;
 }
 .inner_encloser{
     width: 90%;
@@ -35,24 +35,41 @@ i{
     font-size: 20px;
     font-weight: bolder;
 }
+.close{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+}
+.completed_botton{
+    text-align: center;
+}
+.special, .special i{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
 .modal_item{
-    margin-bottom: 30px;
+    text-align: center;	
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.modal_item i{
+    font-size: 25px;
+    float: left;
+    margin-left: 20px;
+}
+.modal_item_encloser{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F5F5F5;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.legend{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-}
-.close{
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    cursor: pointer;
-}
-.order_description{
-    height: 300px;
-    overflow: scroll;
-}
-.completed_botton{
-    text-align: center;
-    cursor: pointer;
 }
