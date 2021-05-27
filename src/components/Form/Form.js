@@ -67,13 +67,13 @@ class Form extends React.Component{
             <div class="testbox">
             <form onSubmit={(e) => this.handleSubmit(e)}>
             <div class="banner">
-                <h1>Stock Updation Form</h1>
+                <h1 className="form_Label">Stock Updation Form</h1>
             </div>
             <p>Name</p>
             {RenderedFields}
             <button onClick={(e)=>this.addFields(e)}>Add field</button>
-            <div class="btn-block">
-                <button type="submit">Send Application</button>
+            <div className="btn-block">
+                <button className="form_Submit" type="submit">Send Application</button>
             </div>
             </form>
         </div>
