@@ -1,5 +1,6 @@
 import React from 'react'
 import './Form.css'
+import axios from 'axios'
 
 class Form extends React.Component{
     state = {meds:[]}
@@ -44,8 +45,17 @@ class Form extends React.Component{
         this.setState({meds: this.state.meds})
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async(e) => {
         e.preventDefault()
+        try{
+            const response = await axios.post('http://127.0.0.1:8000/shop/update-stock/', {
+                'meds': this.state.meds, 'owner': this.props.currUser,
+            })
+            console.log(response)
+        }
+        catch(err){
+            console.log(err)
+        }
         console.log(this.state.meds)
     }
 
@@ -53,11 +63,11 @@ class Form extends React.Component{
         //console.log(this.state.meds)
         const RenderedFields = this.state.meds.map((med, index) => {
             return(
-                <div class="item">
+                <div class="stock_item">
                     <div class="name-item">
-                        <input value={this.state.meds[index].name} type="text" name="MEDNAME" placeholder="Medicine Name" onChange={(e)=>this.updateName(index, e)}/>
-                        <input value={this.state.meds[index].qnty} type="text" name="MEDQNTY" placeholder="Quantity" onChange={(e)=>this.updateQnty(index, e)}/>
-                        <button onClick={(e) => this.removeItem(index, e)}>Remove</button>
+                        <input className="stock_update_input" value={this.state.meds[index].name} type="text" name="MEDNAME" placeholder="Medicine Name" onChange={(e)=>this.updateName(index, e)}/>
+                        <input className="stock_update_input" value={this.state.meds[index].qnty} type="text" name="MEDQNTY" placeholder="Quantity" onChange={(e)=>this.updateQnty(index, e)}/>
+                        <button class='btn btn-danger' onClick={(e) => this.removeItem(index, e)}>Remove</button>
                     </div>
                 </div>
             )
@@ -65,13 +75,12 @@ class Form extends React.Component{
 
         return(
             <div class="testbox">
-            <form onSubmit={(e) => this.handleSubmit(e)}>
+            <form className="stock_update_form" onSubmit={(e) => this.handleSubmit(e)}>
             <div class="banner">
                 <h1 className="form_Label">Stock Updation Form</h1>
             </div>
-            <p>Name</p>
             {RenderedFields}
-            <button onClick={(e)=>this.addFields(e)}>Add field</button>
+            <button className='btn btn-primary' onClick={(e)=>this.addFields(e)}>Add field</button>
             <div className="btn-block">
                 <button className="form_Submit" type="submit">Send Application</button>
             </div>

@@ -1,5 +1,6 @@
-a{
+.nav-links a Link{
     text-decoration: none;
+    color: white;
 }
 
 .NavbarItems {
@@ -132,4 +133,8 @@ a{
         display: none;
     }
 }   
+
+.navbutton{
+    margin-right: 32px;
+}
 

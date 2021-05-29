@@ -1,14 +1,14 @@
 const MenuItems = [
     {
         title: 'Update Stocks',
-        url: '/stockupdate',
+        url: '/dashboard/stockupdate',
         cName: 'nav-links'
     },
     {
         title: 'Analytics',
-        url: '/analytics',
+        url: '/dashboard/analytics',
         cName: 'nav-links'
-    },
+    },   
 ]
 
 export default MenuItems

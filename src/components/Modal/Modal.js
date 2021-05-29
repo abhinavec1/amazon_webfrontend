@@ -1,9 +1,19 @@
 import React from 'react'
 import './Modal.css'
+import axios from 'axios'
 
 class Modal extends React.Component{
+
+	markComplete = async(requestId, onClose ,flag, setFlag) => {
+		console.log(typeof(setFlag))
+		const response = await axios.get(`http://127.0.0.1:8000/shop/completereq/${requestId}`)
+		alert(response.data)
+		setFlag(!flag)
+		onClose()
+	}
+
     render(){
-		const {isDisplayed, onClose, userName, medName, medQnty, orderTime, orderDate } = this.props
+		const {isDisplayed, onClose, userName, medName, medQnty, orderTime, orderDate, email, phoneNum, requestId, setFlag, flag} = this.props
 		if (isDisplayed){
 			return(
 				<div className="modal">
@@ -17,8 +27,8 @@ class Modal extends React.Component{
 									<div class="modal_item"><i class="fas fa-prescription-bottle-alt"></i>{medName}</div>
 									<div class="modal_item"><i class="fas fa-cubes"></i>{medQnty}</div>
 									<div class="modal_item"><i class="far fa-calendar-alt"></i>{orderDate}</div>
-									<div class="modal_item"><i class="fas fa-phone-square"></i> 1234567890</div>
-									<div class="modal_item"><i class="fas fa-envelope-open"></i> gs35@iitbbs.ac.in</div>
+									<div class="modal_item"><i class="fas fa-phone-square"></i>{phoneNum}</div>
+									<div class="modal_item"><i class="fas fa-envelope-open"></i>{email}</div>
 									<div class="modal_item"><i class="fas fa-clock"></i>{orderTime}</div>
 								</div>
 								<div class="modal_item_encloser">
@@ -32,7 +42,7 @@ class Modal extends React.Component{
 									</div>
 								</div>
 							</div>
-							<div class="completed_botton"><button>Completed</button></div>
+							<div style={{'textAlign': 'center'}}><button class="completed_botton" onClick={() => this.markComplete(requestId, onClose, flag, setFlag)}>Completed</button></div>
 						</div>
 					</div>
 				</div>

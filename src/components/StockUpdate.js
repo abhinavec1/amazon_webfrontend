@@ -1,10 +1,10 @@
 import React from 'react'
 import Form from './Form/Form'
 
-const StockUpdate = () => {
+const StockUpdate = ({currUser}) => {
     return(
         <>
-            <Form />
+            <Form currUser={currUser}/>
         </>
     )
 }

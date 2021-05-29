@@ -16,9 +16,9 @@ class Navbar extends React.Component{
         return(
             <Link key={index} to={`${item.url}`}>
                 <li>
-                    <a className={item.cName}>
+                    <span className={item.cName}>
                         {item.title}
-                    </a>
+                    </span>
                 </li>
             </Link>
         )
@@ -27,14 +27,14 @@ class Navbar extends React.Component{
     render(){
         return(
             <div className="NavbarItems">
-                <h1 className="navbar-logo">Your App Name</h1>
+                <h1 className="navbar-logo">Medico</h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times': 'fas fa-bars'}></i>
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                         {this.RenderedMenu}
                 </ul>
-                <Button>Sign Out</Button>
+                <Button className="navbutton">Sign Out</Button>
             </div>
         )
     }

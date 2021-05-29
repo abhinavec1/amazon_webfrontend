@@ -1,12 +1,19 @@
 import React from 'react'
 import './RequestItem.css'
 import Modal from '../Modal/Modal'
+import axios from 'axios'
 
 class RequestItem extends React.Component{
-    state = {isDisplayed: false}
+    state = {isDisplayed: false, result: {customer: {user: { email: ''}, phoneNum: ''}}}
 
-    handleClick = () => {
-        this.setState({isDisplayed: true})
+    handleClick = async(requestId) => {
+        try {
+            const response  = await axios.get(`http://127.0.0.1:8000/shop/item-detail/${requestId}/`) // Replace 9 with the item id
+            this.setState({result: response.data, isDisplayed: true})
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 
     onClose = () => {
@@ -14,7 +21,7 @@ class RequestItem extends React.Component{
     }
 
     render(){
-        const {userName, medName, medQnty, orderDate, orderTime} = this.props
+        const {userName, medName, medQnty, orderDate, orderTime, requestId, flag, setFlag} = this.props
         return(
             <div>
                 <div className="outer">
@@ -24,8 +31,8 @@ class RequestItem extends React.Component{
                         <span className="quantity bar_item"><i className="fas fa-cubes"></i> {medQnty}</span>
                         <span className="date bar_item"><i className="far fa-calendar-alt"></i><span> {orderDate}</span></span>
                         <span className="time bar_item"><i className="fas fa-clock"></i><span> {orderTime}</span></span>
-                        <span className="more bar_item"><button onClick={this.handleClick}>Details</button></span>
-                        <Modal isDisplayed={this.state.isDisplayed} userName={userName} medName={medName} medQnty={medQnty} orderDate={orderDate} orderTime={orderTime} onClose={this.onClose}/>
+                        <span className="bar_item"><button className="btn btn-primary" onClick={() => {this.handleClick(requestId)}}>Details</button></span>
+                        <Modal isDisplayed={this.state.isDisplayed} flag={flag} setFlag={setFlag} requestId={requestId} userName={userName} medName={medName} medQnty={medQnty} orderDate={orderDate} orderTime={orderTime} email={this.state.result.customer.user.email} phoneNum = {this.state.result.customer.phoneNum} onClose={this.onClose}/>
                     </div>
                 </div>
             </div>
