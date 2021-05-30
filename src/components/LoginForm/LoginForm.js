@@ -18,7 +18,7 @@ class LoginForm extends React.Component{
     handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axios.post('http://172.31.35.88:8000/customer/login/', {
+            const response = await axios.post('http://13.233.69.75:8000/customer/login/', {
                 username: this.state.username,
                 password: this.state.password
             })

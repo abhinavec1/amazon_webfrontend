@@ -52,7 +52,8 @@
     border-radius: 3px;
     }
     .stock_update_input {
-    width: calc(100% - 10px);
+    width: 40%;
+    height: 100%;
     padding: 5px;
     }
     .stock_item:hover p, .stock_item:hover i, .stock_update_input input:hover::placeholder {
@@ -84,13 +85,13 @@
     .form_Submit:hover {
     background: rgb(63, 107, 252);
     }
+    .name-item{
+        height: 50px;
+    }
     @media (min-width: 568px) {
     .name-item{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    }
-    .name-item input{
-    width: calc(50% - 20px);
     }
 }

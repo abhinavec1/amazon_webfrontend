@@ -6,7 +6,7 @@ class Modal extends React.Component{
 
 	markComplete = async(requestId, onClose ,flag, setFlag) => {
 		console.log(typeof(setFlag))
-		const response = await axios.get(`http://172.31.35.88:8000/shop/completereq/${requestId}`)
+		const response = await axios.get(`http://13.233.69.75:8000/shop/completereq/${requestId}`)
 		alert(response.data)
 		setFlag(!flag)
 		onClose()

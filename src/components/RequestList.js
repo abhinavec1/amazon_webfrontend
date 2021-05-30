@@ -10,7 +10,7 @@ const RequestList = () => {
     useEffect(()=>{
         const func = async() => {
             try{
-                const response = await axios.get('http://172.31.35.88:8000/shop/list/')
+                const response = await axios.get('http://13.233.69.75:8000/shop/list/')
                 let temp = []
                 for (let i in response.data){
                     temp.push(response.data[i])

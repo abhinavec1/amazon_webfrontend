@@ -48,7 +48,7 @@ class Form extends React.Component{
     handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axios.post('http://172.31.35.88:8000/shop/update-stock/', {
+            const response = await axios.post('http://13.233.69.75:8000/shop/update-stock/', {
                 'meds': this.state.meds, 'owner': this.props.currUser,
             })
             alert(response.data)
@@ -67,7 +67,7 @@ class Form extends React.Component{
                     <div class="name-item">
                         <input className="stock_update_input" value={this.state.meds[index].name} type="text" name="MEDNAME" placeholder="Medicine Name" onChange={(e)=>this.updateName(index, e)}/>
                         <input className="stock_update_input" value={this.state.meds[index].qnty} type="text" name="MEDQNTY" placeholder="Quantity" onChange={(e)=>this.updateQnty(index, e)}/>
-                        <button class='btn btn-danger' onClick={(e) => this.removeItem(index, e)}>Remove</button>
+                        <button class='btn btn-danger' style={{'height': '50px'}}onClick={(e) => this.removeItem(index, e)}>Remove</button>
                     </div>
                 </div>
             )
