@@ -8,7 +8,7 @@ class RequestItem extends React.Component{
 
     handleClick = async(requestId) => {
         try {
-            const response  = await axios.get(`http://127.0.0.1:8000/shop/item-detail/${requestId}/`) // Replace 9 with the item id
+            const response  = await axios.get(`http://172.31.35.88:8000/shop/item-detail/${requestId}/`) // Replace 9 with the item id
             this.setState({result: response.data, isDisplayed: true})
         }
         catch(err){

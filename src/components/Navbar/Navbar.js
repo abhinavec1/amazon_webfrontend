@@ -27,14 +27,14 @@ class Navbar extends React.Component{
     render(){
         return(
             <div className="NavbarItems">
-                <h1 className="navbar-logo">Medico</h1>
+                <Link to="/dashboard"><h1 className="navbar-logo">Medico</h1></Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times': 'fas fa-bars'}></i>
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                         {this.RenderedMenu}
                 </ul>
-                <Button className="navbutton">Sign Out</Button>
+                <Link to="/"><Button className="navbutton">Sign Out</Button></Link>
             </div>
         )
     }

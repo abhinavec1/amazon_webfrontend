@@ -18,7 +18,7 @@ class RegisterForm extends React.Component{
         let latitude = document.getElementById('latitude').value
         let longitude = document.getElementById('longitude').value
         try{
-            const response  = await axios.post('http://127.0.0.1:8000/shop/register-store/', {
+            const response  = await axios.post('http://172.31.35.88:8000/shop/register-store/', {
                     "first_name" : firstname,
                     "last_name": lastname,
                     "email": email,

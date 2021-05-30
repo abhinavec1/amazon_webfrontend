@@ -48,13 +48,13 @@ class Form extends React.Component{
     handleSubmit = async(e) => {
         e.preventDefault()
         try{
-            const response = await axios.post('http://127.0.0.1:8000/shop/update-stock/', {
+            const response = await axios.post('http://172.31.35.88:8000/shop/update-stock/', {
                 'meds': this.state.meds, 'owner': this.props.currUser,
             })
-            console.log(response)
+            alert(response.data)
         }
         catch(err){
-            console.log(err)
+            alert('Unable to update stock')
         }
         console.log(this.state.meds)
     }
